@@ -19,7 +19,7 @@ LABEL org.opencontainers.image.version="$VERSION"
 
 USER root
 
-RUN wget https://www.csse.uwa.edu.au/programming/ansic-library.html -O /opt/static/docs/index.html
+COPY docs/ansic-library.html /opt/static/docs/index.html
 
 COPY database.sqlite /opt/wiki/database.sqlite
 
