@@ -1,5 +1,5 @@
 
-FROM marshallasch/base-resource:main
+FROM marshallasch/base-resource:latest
 
 LABEL org.opencontainers.version="v1.0.0"
 
@@ -14,14 +14,10 @@ LABEL org.opencontainers.image.description="This image is the C specific image t
 ARG VERSION=v1.0.0
 LABEL org.opencontainers.image.version="$VERSION"
 
-# setup the man pages
-# RUN yes | unminimize
-
 USER root
 
 COPY docs/ansic-library.html /opt/static/docs/index.html
-
-COPY database.sqlite /opt/wiki/database.sqlite
+RUN chown -R ${UID}:${UID} /opt/static
 
 # install jupyter dependancies
 RUN pip3 install jupyter-c-kernel
@@ -29,14 +25,7 @@ RUN pip3 install jupyter-c-kernel
 # Install jupyter kernels
 RUN install_c_kernel --user
 
-# copy all the builtin jupyter notebooks
-COPY builtinNotebooks /builtin/jupyter
-RUN chown -R ${UID}:${UID} /builtin /opt/static /opt/wiki
-
-COPY motd.txt /scripts/
-RUN chown -R ${UID}:${UID} /scripts
-
-USER ${UNAME} 
+USER ${UNAME}
 
 # these two labels will change every time the container is built
 # put them at the end because of layer caching
