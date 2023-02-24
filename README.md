@@ -1,7 +1,7 @@
 [![Deployment](https://github.com/sci-oer/c-resource/actions/workflows/deployment.yml/badge.svg)](https://github.com/sci-oer/c-resource/actions/workflows/deployment.yml)
 ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/scioer/c-resource?style=plastic)
 ![Docker Pulls](https://img.shields.io/docker/pulls/scioer/c-resource?style=plastic)
-
+![GitHub](https://img.shields.io/github/license/sci-oer/c-resource?style=plastic)
 
 This is the C specific version of the sci-oer resource.
 This extends the configuration defined in the [sci-oer/base-resource](https://github.com/sci-oer/base-resource) and adds the language specific dependencies.
